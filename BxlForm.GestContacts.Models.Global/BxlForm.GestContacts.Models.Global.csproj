@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Repositories\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BxlForm.Tools\BxlForm.Tools.csproj" />
   </ItemGroup>
 
 </Project>
