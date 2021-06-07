@@ -15,6 +15,11 @@ namespace BxlForm.Tools.Connections.Database
         {
             _providerFactory = providerFactory;
             _connectionString = connectionString;
+
+            using (DbConnection dbConnection = CreateConnection())
+            {
+                dbConnection.Open();
+            }
         }
 
         public int ExecuteNonQuery(Command command)
