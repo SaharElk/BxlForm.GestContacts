@@ -1,5 +1,6 @@
 ﻿using BxlForm.GestContacts.Models.Global.Data;
 using BxlForm.GestContacts.Models.Global.Mappers;
+using BxlForm.GestContacts.Models.Global.Repositories;
 using BxlForm.Tools.Connections.Database;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace BxlForm.GestContacts.Models.Global.Services
 {
-    public class CategoriesService
+    public class CategoriesService : ICategoriesRepository
     {
         private readonly Connection _connection;
 
@@ -20,7 +21,7 @@ namespace BxlForm.GestContacts.Models.Global.Services
 
         public IEnumerable<Category> Get()
         {
-            Command command = new Command("SELECT [Id], [Name] FROM [Category];", false);            
+            Command command = new Command("SELECT [Id], [Name] FROM [Category];", false);
             return _connection.ExecuteReader(command, dr => dr.ToCategory());
         }
 

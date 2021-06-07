@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using BxlForm.GestContacts.Models.Global.Data;
 using BxlForm.GestContacts.Models.Global.Mappers;
+using BxlForm.GestContacts.Models.Global.Repositories;
 using BxlForm.Tools.Connections.Database;
 
 namespace BxlForm.GestContacts.Models.Global.Services
 {
-    public class ContactsService
+    public class ContactsService : IContactsRepository
     {
         private readonly Connection _connection;
 
