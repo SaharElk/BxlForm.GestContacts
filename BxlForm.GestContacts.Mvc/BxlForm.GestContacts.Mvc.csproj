@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BxlForm.GestContacts.Models.Client\BxlForm.GestContacts.Models.Client.csproj" />
+    <ProjectReference Include="..\BxlForm.GestContacts.Models.Global\BxlForm.GestContacts.Models.Global.csproj" />
+    <ProjectReference Include="..\BxlForm.Tools\BxlForm.Tools.csproj" />
+  </ItemGroup>
+
+</Project>

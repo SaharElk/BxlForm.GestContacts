@@ -1,0 +1,29 @@
+﻿@using TestMvc.Models.Data
+@model IEnumerable<Contact>
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Liste des contacts :</h1>
+    <table>
+        <tr>
+            <th>LastName</th>
+            <th>FirstName</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        @foreach (Contact contact in Model)
+        {
+        <tr>
+            <td>@contact.LastName</td>
+            <td>@contact.FirstName</td>
+            <td>@contact.Email</td>
+            <td><a href="~/contact/details/@contact.Id"> Détails</a></td>
+        </tr>
+        }
+    </table>
+</body>
+</html>
