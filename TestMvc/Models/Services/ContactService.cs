@@ -31,5 +31,15 @@ namespace TestMvc.Models.Services
             return _connection.ExecuteReader(command, dr => dr.ToContact()).SingleOrDefault();
         }
 
+        public bool Insert(Contact contact)
+        {
+            Command command = new Command("BFSP_AddContact", true);
+            command.AddParameter("LastName", contact.LastName);
+            command.AddParameter("FirstName", contact.FirstName);
+            command.AddParameter("Email", contact.Email);
+            command.AddParameter("CategoryId", contact.CategoryId);
+            return _connection.ExecuteNonQuery(command) == 1;
+        }
+
     }
 }
