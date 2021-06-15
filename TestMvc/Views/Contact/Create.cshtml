@@ -1,43 +1,45 @@
-﻿<!doctype html>
-<html lang="fr">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1> Création d'un contact :</h1>
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Contact Create";
+}
+@model CreateContactForm
 
-    <form method="post">
+<h1>New contact</h1>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="LastName"> </label>
         <div>
-            <label for="LastName"> LastName : </label>
-            <div>
-                <input id="LastName" type="text" name="LastName"  />
-            </div>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
         <div>
-            <label for="FirstName"> FirstName : </label>
-            <div>
-                <input id="FirstName" type="text" name="FirstName"  />
-            </div>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
         <div>
-            <label for="Email"> Email : </label>
-            <div>
-                <input id="Email" type="email" name="Email" />
-            </div>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId"></label>
         <div>
-            <label for="CategoryId"> Category : </label>
-            <div>
-                <select name="CategoryId" required>
-                    <option value="0"> Select a category </option>
-                    <option value="1"> Personnel </option>
-                    <option value="2"> Professionnel </option>
-                </select>
-            </div>
+            <select name="CategoryID" class="form-control">
+                <option value="0">Choose a category</option>
+                <option value="1">Personnel</option>
+                <option value="2">Profesionnel</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
-        <div>
-            <input type="submit" value="Create Contact" />
-        </div>
-    </form>
-</body>
-</html>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-dark btn-block" type="submit"> Create </button>
+    </div>
+</form>

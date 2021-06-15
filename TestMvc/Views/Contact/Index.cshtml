@@ -1,32 +1,32 @@
-﻿@using TestMvc.Models.Data
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Contact Index";
+}
 @model IEnumerable<Contact>
 
-<!doctype html>
-<html lang="fr">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Liste des contacts :</h1>
-    <table>
+<h1>Contacts</h1>
+<table class="table mt-3">
+    <thead class="thead-dark">
         <tr>
             <th>LastName</th>
             <th>FirstName</th>
             <th>Email</th>
             <th></th>
         </tr>
+    </thead>
+    <tbody>
         @foreach (Contact contact in Model)
         {
         <tr>
             <td>@contact.LastName</td>
             <td>@contact.FirstName</td>
             <td>@contact.Email</td>
-            <td><a href="~/contact/details/@contact.Id"> Details</a></td>
+            <td><a asp-action="Details" asp-controller="Contact" asp-route-id="@contact.Id"> Details</a></td>
         </tr>
         }
-    </table>
-    <div>
-        <a href="~/contact/create"> Create a contact</a>
-    </div>
-</body>
-</html>
+    </tbody>
+</table>
+<div>
+    <a asp-action="Create" asp-controller="Contact"> New contact</a>
+</div>
+

@@ -1,34 +1,29 @@
-﻿@using TestMvc.Models.Data
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Contact Details";
+}
 @model Contact
 
-<!doctype html>
-<html lang="fr">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1> Détails du contact @Model.Id :</h1>
 
-    <div>
-        <label> Id : </label>
-        <span> @Model.Id </span>
-    </div>
-    <div>
-        <label> LastName : </label>
-        <span> @Model.LastName </span>
-    </div>
-    <div>
-        <label> FirstName : </label>
-        <span> @Model.FirstName </span>
-    </div>
-    <div>
-        <label> Email : </label>
-        <span> @Model.Email </span>
-    </div>
-    <div>
-        <label> CategoryId : </label>
-        <span> @Model.CategoryId </span>
-    </div>
-    <a href="~/contact"> Retour à la liste des contacts</a>
-</body>
-</html>
+<h1> Contact @Model.Id details </h1>
+
+<div class="row">
+    <div class="col-3"> Id </div>
+    <div class="col-6"> @Model.Id </div>
+</div>
+<div class="row">
+    <div class="col-3"> LastName </div>
+    <div class="col-6"> @Model.LastName </div>
+</div>
+<div class="row">
+    <div class="col-3"> FirstName </div>
+    <div class="col-6"> @Model.FirstName </div>
+</div>
+<div class="row">
+    <div class="col-3"> Email </div>
+    <div class="col-6"> @Model.Email </div>
+</div>
+<div class="row">
+    <div class="col-3"> CategoryId </div>
+    <div class="col-6"> @Model.CategoryId </div>
+</div>
