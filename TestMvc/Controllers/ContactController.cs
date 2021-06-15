@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestMvc.Models.Data;
+using TestMvc.Models.Forms;
 using TestMvc.Models.Services;
 
 namespace TestMvc.Controllers
@@ -34,13 +35,15 @@ namespace TestMvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string LastName, string FirstName, string Email, int CategoryId)
+        public IActionResult Create(CreateContactForm contactForm)
         {
-            if (LastName is not null && FirstName is not null && Email is not null && CategoryId != 0)
+            if (!ModelState.IsValid)
             {
-                Contact contact = new Contact { LastName = LastName, FirstName = FirstName, Email = Email, CategoryId = CategoryId };
-                _contactService.Insert(contact);
+                return View(contactForm);
             }
+
+            Contact contact = new Contact { LastName = contactForm.LastName, FirstName = contactForm.FirstName, Email = contactForm.Email, CategoryId = contactForm.CategoryId };
+            _contactService.Insert(contact);
 
             return RedirectToAction("Index");
         }
