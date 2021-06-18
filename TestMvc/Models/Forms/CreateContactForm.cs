@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TestMvc.Models.ValidationAttributes;
 
 namespace TestMvc.Models.Forms
 {
@@ -22,6 +24,9 @@ namespace TestMvc.Models.Forms
         public string Email { get; set; }
 
         [Required]
+        [CategoryIdValidation]
         public int CategoryId { get; set; }
+
+        public IEnumerable<SelectListItem> Categories { get; set; }
     }
 }

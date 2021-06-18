@@ -34,6 +34,7 @@ namespace TestMvc
             // sp : Service Provider
             services.AddSingleton(sp => new Connection(SqlClientFactory.Instance, _connectionString));
             services.AddSingleton<ContactService>();
+            services.AddSingleton<CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

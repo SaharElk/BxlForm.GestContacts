@@ -31,11 +31,7 @@
     <div class="form-group">
         <label asp-for="CategoryId"></label>
         <div>
-            <select name="CategoryID" class="form-control">
-                <option value="0">Choose a category</option>
-                <option value="1">Personnel</option>
-                <option value="2">Profesionnel</option>
-            </select>
+            <select class="form-control" asp-for="CategoryId" asp-items="Model.Categories"></select>
             <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
     </div>

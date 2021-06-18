@@ -21,5 +21,14 @@ namespace TestMvc.Models.Mappers
                 CategoryId = (int)record["CategoryId"]
             };
         }
+
+        internal static Category ToCategory(this IDataRecord record)
+        {
+            return new Category()
+            {
+                Id = (int)record["id"],
+                Name = (string)record["Name"]
+            };
+        }
     }
 }
